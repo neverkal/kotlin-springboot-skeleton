@@ -5,10 +5,10 @@ import io.kotest.matchers.shouldBe
 
 internal class AuthorTest: AnnotationSpec() {
 
-    @Test
+    /*@Test
     fun `1 plus 2 is 3`() {
         val result = 1 + 3
         result shouldBe 3
-    }
+    }*/
 
 }

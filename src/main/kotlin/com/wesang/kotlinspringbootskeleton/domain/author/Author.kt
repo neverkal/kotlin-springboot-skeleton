@@ -2,9 +2,7 @@ package com.wesang.kotlinspringbootskeleton.domain.author
 
 import com.wesang.kotlinspringbootskeleton.common.entity.BaseEntity
 import com.wesang.kotlinspringbootskeleton.domain.book.Book
-import com.wesang.kotlinspringbootskeleton.domain.category.Category
 import lombok.*
-import java.time.LocalDateTime
 import java.util.TreeSet
 import javax.persistence.*
 
