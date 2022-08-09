@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kotlin-springboot-skeleton-skf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kotlin-springboot-skeleton-skf
+  template:
+    metadata:
+      labels:
+        app: kotlin-springboot-skeleton-skf
+    spec:
+      containers:
+        - name: kotlin-springboot-skeleton-skf
+          image: kotlin-springboot-skeleton-img
+          ports:
+            - containerPort: 8080

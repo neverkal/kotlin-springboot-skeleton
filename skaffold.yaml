@@ -1,0 +1,35 @@
+apiVersion: skaffold/v2beta28
+kind: Config
+metadata:
+  name: kotlin-springboot-skeleton-skf
+build:
+  artifacts:
+    - image: kotlin-springboot-skeleton-img
+      docker:
+        dockerfile: Dockerfile
+deploy:
+#  kubeContext: minikube
+#  helm:
+#    flags:
+#      install: ['--timeout', '10m0s']
+#      upgrade: ['--timeout', '10m0s']
+#    releases:
+#      - name: mongodb
+#        remoteChart: bitnami/mongodb
+#        version: 10.31.5
+#        namespace: relayo-rp
+#        createNamespace: true
+#        valuesFiles:
+#          - skaffold/mongodb/values.yaml
+  kubectl:
+    manifests:
+      - k8s-*
+#portForward:
+#  - resourceType: service
+#    resourceName: mongodb
+#    namespace: relayo-rp
+#    port: 27017
+#  - resourceType: pod
+#    resourceName: kotlin-springboot-skeleton-skf
+#    port: 80
+#    localPort: 8080
