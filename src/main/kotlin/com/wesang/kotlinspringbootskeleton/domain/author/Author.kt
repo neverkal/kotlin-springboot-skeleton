@@ -11,8 +11,9 @@ import javax.persistence.*
 @NoArgsConstructor
 @Builder
 @Getter
-class Author: BaseEntity() {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long? = null
-    @NonNull var name: String? = null
-    @OneToMany(mappedBy = "author") var books: MutableSet<Book> = TreeSet()
+class Author(
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long,
+    @NonNull var name: String,
+    @OneToMany(mappedBy = "author") var books: MutableSet<Book>
+): BaseEntity() {
 }

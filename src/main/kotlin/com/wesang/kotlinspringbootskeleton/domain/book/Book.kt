@@ -17,11 +17,12 @@ import javax.persistence.*
 @NoArgsConstructor
 @Builder
 @Getter
-class Book: BaseEntity() {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long? = null
-    @NonNull var title: String? = null
-    @NonNull var content: String? = null
-    @NonNull var publishAt: LocalDateTime? = null
-    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "category_id") var category: Category? = null
-    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "author_id") var author: Author? = null
+class Book(
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long,
+    @NonNull var title: String,
+    @NonNull var content: String,
+    @NonNull var publishAt: LocalDateTime,
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "category_id") var category: Category,
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "author_id") var author: Author
+): BaseEntity() {
 }
