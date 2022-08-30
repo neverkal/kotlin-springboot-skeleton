@@ -6,6 +6,7 @@ plugins {
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
+    kotlin("kapt") version "1.6.21"
 }
 
 group = "com.wesang"
@@ -39,20 +40,26 @@ dependencies {
     implementation("redis.clients:jedis:4.2.3")
     implementation("org.ehcache:ehcache:3.10.0")
     implementation("javax.cache:cache-api:1.1.1")
+    implementation("io.github.microutils:kotlin-logging-jvm:2.0.10")
+    implementation("org.slf4j:slf4j-api:1.7.30")
+    kapt("com.querydsl:querydsl-apt:5.0.0:jpa")
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.h2database:h2")
     runtimeOnly("net.logstash.logback:logstash-logback-encoder:7.2")
     runtimeOnly("mysql:mysql-connector-java")
-    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     annotationProcessor("org.projectlombok:lombok")
     annotationProcessor("javax.persistence:javax.persistence-api")
     annotationProcessor("javax.annotation:javax.annotation-api")
-    annotationProcessor("com.querydsl:querydsl-apt:5.0.0:jpa")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.kotest:kotest-runner-junit5:5.2.3")
     testImplementation("io.kotest:kotest-assertions-core:5.2.3")
+    
+    kotlin.sourceSets.main {
+        setBuildDir("$buildDir")
+    }
 }
 
 tasks.withType<KotlinCompile> {

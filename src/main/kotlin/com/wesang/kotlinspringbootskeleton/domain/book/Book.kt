@@ -17,7 +17,7 @@ import javax.persistence.*
 @NoArgsConstructor
 @Builder
 @Getter
-class Book(
+open class Book(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long,
     @NonNull var title: String,
     @NonNull var content: String,

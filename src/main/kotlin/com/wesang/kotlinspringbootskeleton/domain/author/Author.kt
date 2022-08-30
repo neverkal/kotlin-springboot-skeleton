@@ -11,7 +11,7 @@ import javax.persistence.*
 @NoArgsConstructor
 @Builder
 @Getter
-class Author(
+open class Author(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long,
     @NonNull var name: String,
     @OneToMany(mappedBy = "author") var books: MutableSet<Book>
