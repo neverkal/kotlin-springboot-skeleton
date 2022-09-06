@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.RestController
 @Validated
 @RestController
 @RequestMapping("/api/authors")
-class AuthorController ()
-{
+class AuthorController(
+    private val authorService: AuthorService
+) {
     private val logger = KotlinLogging.logger {}
 
     @GetMapping("/{authorId}")
     fun getAuthorDetail (
-        @PathVariable("authorId") authorId: Int
-    ): String {
-        return "Hello Author ID"
+        @PathVariable("authorId") authorId: Long
+    ): Author {
+        return authorService.getAuthor(authorId)
     }
 
 }

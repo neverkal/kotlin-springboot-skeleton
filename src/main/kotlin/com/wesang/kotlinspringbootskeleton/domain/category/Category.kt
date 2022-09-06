@@ -13,8 +13,8 @@ import javax.persistence.Id
 @Builder
 @Getter
 open class Category(
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long,
-    @NonNull var title: String,
-    @NonNull var description: String
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) open var id: Long,
+    @NonNull open var title: String,
+    @NonNull open var description: String
 ): BaseEntity() {
 }
