@@ -19,4 +19,8 @@ class AuthorServiceImpl(
         throw NoContentException("조회 요청하신 {$id}는 없습니다.")
     }
 
+    override fun registerAuthor(name: String) {
+        TODO("Not yet implemented")
+    }
+
 }
